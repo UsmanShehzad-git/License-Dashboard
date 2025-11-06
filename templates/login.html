@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>License Server - Login</title>
+  <link rel="icon" type="image/png" href="/static/assets/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .login-section {
+      background: #fff;
+      padding: 40px 50px;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      border: 1px solid #bebdbd;
+      text-align: center;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .login-section img.logo {
+      width: 380px;
+      margin-bottom: 30px;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: left;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      padding: 14px 18px;
+      font-size: 16px;
+      border: 1.5px solid #ddd;
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #043b83;
+      box-shadow: 0 0 10px rgba(39, 7, 153, 0.4);
+      background: #fff;
+    }
+
+    button[type="submit"] {
+      padding: 16px 0;
+      font-size: 18px;
+      font-weight: 700;
+      background: #043b83;
+      border: none;
+      border-radius: 14px;
+      color: white;
+      cursor: pointer;
+    }
+
+    p.error-message {
+      color: #e74c3c;
+      font-size: 14px;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 480px) {
+      .login-section {
+        padding: 30px 25px;
+        max-width: 100%;
+        border-radius: 16px;
+      }
+
+      .login-section img.logo {
+        width: 160px;
+        margin-bottom: 20px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-section">
+    <img src="/static/assets/logo.png" alt="Logo" class="logo" />
+    <form action="/login" method="post"  >
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+      </div>
+      {% if error %}
+      <p class="error-message">{{ error }}</p>
+      {% endif %}
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+  document.querySelector('form').addEventListener('submit', function(e) {
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    if (!email.value.trim() || !password.value.trim()) {
+      e.preventDefault();
+      alert('Please fill in all required fields.');
+    }
+  });
+</script>
+</body>
+
+</html>

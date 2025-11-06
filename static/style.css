@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f5f7fa;
+    padding: 50px 20px;
+    color: #333;
+}
+
+h1 {
+    margin-top:-10px;
+    font-weight: 700;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Add Button */
+.add-btn {
+    position: absolute;
+    top: 60px;
+    right: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8%;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Styling */
+.license-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.license-form input,
+.license-form select {
+    padding: 14px 18px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1.8px solid #ddd;
+    outline: none;
+    background: #fafafa;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.license-form input::placeholder {
+    color: #aaa;
+}
+
+.license-form input:focus,
+.license-form select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+    background: #fff;
+}
+
+.license-form button {
+    background-color: #3498db;
+    border: none;
+    padding: 16px;
+    grid-column: 1 / -1;
+    justify-self: end;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.license-form button:hover {
+    background-color: #2980b9;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Upgraded Modal Content */
+.modal-content {
+    background: #ffffff;
+    margin: 100px auto;
+    padding: 40px 35px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 700px; /* Increased width */
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.4s ease;
+}
+
+/* Optional Fancy Header */
+.modal-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8px;
+    width: 100%;
+    background: linear-gradient(90deg, #3b82f6, #9333ea);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #000;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table-container {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    max-height: 500px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+table {
+    min-width: max-content;
+    overflow-x: auto;
+    border-spacing: 0;
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 0;
+    border-radius: 12px;
+}
+
+thead th {
+    text-align: center;
+    padding: 16px 20px;
+    background: #3b82f6;
+    color: #fff;
+    min-width: 140px;
+    white-space: nowrap;
+    font-weight: 600;
+    border-bottom: 2px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+tbody tr:nth-child(even) {
+    background-color: #f9fbfd;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+tbody tr:hover {
+    background-color: #eef6ff;
+    transition: background-color 0.25s ease;
+}
+
+tbody td {
+    padding: 14px 20px;
+    min-width: 90px;  
+    border-bottom: 1px solid #eee;
+    text-align: center; 
+    vertical-align: middle;
+    font-size: 15px;
+}
+
+
+.actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    padding: 5px 9px;      
+    border: none;
+    border-radius: 6px;      
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.btn.view {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.btn.view:hover {
+    background-color: #2563eb;
+}
+
+.btn.delete {
+    background-color: #ef4444;
+    color: white;
+}
+
+.btn.delete:hover {
+    background-color: #b91c1c;
+}
+
+.btn:focus {
+    outline: 2px solid #fbbf24;
+    outline-offset: 2px;
+}
